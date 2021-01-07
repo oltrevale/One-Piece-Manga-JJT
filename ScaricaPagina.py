@@ -2,8 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import time
+from PIL import Image
 
-
+lista = []
 def ScaricaPagina(Pagina, Capitolo):
     Pagina = str(Pagina)
     Capitolo = str(Capitolo)
@@ -21,12 +22,24 @@ def ScaricaPagina(Pagina, Capitolo):
     with open(f"C:\\Users\\Kappa\\Desktop\\{Capitolo}\\{Pagina}.png", "wb") as f:
         f.write(requests.get(link).content)
     print(f"la pagina numero {Pagina} del capitolo numero {Capitolo} è stata scaricata")
+    print(link)
+    return link
 
 
 def ScaricaCapitolo(Capitolo):
+    lista_link = []
     for Pagina in range(1, 23):
-        ScaricaPagina(Pagina, Capitolo)
+        link = ScaricaPagina(Pagina, Capitolo)
+        if link  in lista_link:
+            pass 
+        else :
+            lista_link.append(link)
+            image = Image.open(f'C:\\Users\\Kappa\\Desktop\\{Capitolo}\\{Pagina}.png')
+            image = image.convert('RGB')
+            lista.append(image)
+            
         time.sleep(3)
+    image.save(f'C:\\Users\\Kappa\\Desktop\\{Capitolo}.pdf',save_all=True, append_images=lista)
 
 if __name__ == "__main__":
     ScaricaCapitolo(912)
