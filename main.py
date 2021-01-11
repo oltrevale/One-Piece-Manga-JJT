@@ -1,32 +1,35 @@
-import ScaricaPagina
-import Archivia
+import scarica_pagina
+import archivia
 
 
 def menu():
-    print("Inserisci 1 per scaricare una Pagina di un Capitolo")
+    print("Inserisci 1 per scaricare una pagina di un Capitolo")
     print("Inserisci 2 per scaricare un Capitolo")
     print("Inserisci 3 per scaricare in un range di Capitoli")
     immissione = int(input())
     if immissione == 1:
-        Pagina = input("Pagina del Capitolo?")
-        Capitolo = input("Numero del Capitolo?")
-        ScaricaPagina.ScaricaPagina(Pagina, Capitolo)
-        print(f"La pagina numero {Pagina} del capitolo numero {Capitolo} è stata scaricata")
+        pagina = input("pagina del Capitolo?")
+        capitolo = input("Numero del Capitolo?")
+        scarica_pagina.scarica_pagina(pagina, capitolo)
+        print(f"La pagina numero {pagina} del capitolo numero {capitolo} è stata scaricata")
         menu()
     if immissione == 2:
-        Capitolo = input("Numero del capitolo?")
-        ScaricaPagina.ScaricaCapitolo(Capitolo)
-        Archivia.archivia_rinomina(Capitolo)
-        print(f"Capitolo numero {Capitolo} scaricato")
+        capitolo = input("Numero del capitolo?")
+        lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
+        archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
+        print(f"Capitolo numero {capitolo} scaricato")
         menu()
     if immissione == 3:
-        CapitoloInizio = int(input("Estremo range da cui iniziare a scaricare?"))
-        CapitoloFine = int(input("Estremo range in cui terminare?"))
-        CapitoloFine = CapitoloFine+1  # per il range
-        for Capitolo in range(CapitoloInizio, CapitoloFine):
-            ScaricaPagina.ScaricaCapitolo(Capitolo)
-            Archivia.archivia_rinomina(Capitolo)
-            print(f"Capitolo numero {Capitolo} scaricato")
+        dizionario = {}
+        capitolo_inizio = int(input("Estremo range da cui iniziare a scaricare?"))
+        capitolo_fine = int(input("Estremo range in cui terminare?"))
+        capitolo_fine = capitolo_fine + 1  # per il range
+        for capitolo in range(capitolo_inizio, capitolo_fine):
+            # TODO creare pdf di questo
+            lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
+            dizionario[capitolo] = lunghezza_lista
+            print(f"Capitolo numero {capitolo} scaricato")
+        archivia.crea_pdf_capitoli(capitolo_inizio, capitolo_fine, dizionario)
         print("Tutti i capitoli sono stati scaricati")
         menu()
     else:
