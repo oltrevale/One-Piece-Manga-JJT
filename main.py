@@ -25,7 +25,6 @@ def menu():
         capitolo_fine = int(input("Estremo range in cui terminare?"))
         capitolo_fine = capitolo_fine + 1  # per il range
         for capitolo in range(capitolo_inizio, capitolo_fine):
-            # TODO creare pdf di questo
             lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
             dizionario[capitolo] = lunghezza_lista
             print(f"Capitolo numero {capitolo} scaricato")
