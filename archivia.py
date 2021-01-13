@@ -1,4 +1,5 @@
 # TODO  inserisci log
+# TODO migliorare visualizzazione pdf
 from PIL import Image
 
 
