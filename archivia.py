@@ -1,6 +1,9 @@
 # TODO  inserisci log
 # TODO migliorare visualizzazione pdf
 # TODO aggiungere bookmarks
+# TODO trova modo per eliminare immagini dupplicate
+# TODO inserisci commenti
+# FIXME passa a inglese
 from PIL import Image
 
 

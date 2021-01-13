@@ -1,3 +1,6 @@
+# TODO rich per migliorare grafica
+# TODO inserisci commenti
+# FIXME passa a inglese
 import scarica_pagina
 import archivia
 

@@ -1,3 +1,5 @@
+# TODO inserisci commenti
+# FIXME passa a ingelse
 import os
 import time
 
@@ -8,6 +10,7 @@ lista = []
 
 
 def scarica_pagina(pagina, capitolo):
+    # TODO aggiungi progressione dowload
     pagina = str(pagina)
     capitolo = str(capitolo)
     try:
