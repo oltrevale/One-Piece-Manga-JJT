@@ -1,3 +1,4 @@
+# TODO  inserisci log
 from PIL import Image
 
 
