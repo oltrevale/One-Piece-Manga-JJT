@@ -20,6 +20,7 @@ def menu():
         print(f"Capitolo numero {capitolo} scaricato")
         menu()
     if immissione == 3:
+        # TODO aggiungi opzione per non aggiungere capitoli ad unico pdf
         dizionario = {}
         capitolo_inizio = int(input("Estremo range da cui iniziare a scaricare?"))
         capitolo_fine = int(input("Estremo range in cui terminare?"))
