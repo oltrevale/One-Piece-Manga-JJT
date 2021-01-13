@@ -14,6 +14,7 @@ def menu():
         print(f"La pagina numero {pagina} del capitolo numero {capitolo} è stata scaricata")
         menu()
     if immissione == 2:
+        # TODO: permeettere di aggiungere capitolo a volume .pdf
         capitolo = input("Numero del capitolo?")
         lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
         archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)

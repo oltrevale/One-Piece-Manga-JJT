@@ -1,5 +1,6 @@
 # TODO  inserisci log
 # TODO migliorare visualizzazione pdf
+# TODO aggiungere bookmarks
 from PIL import Image
 
 
