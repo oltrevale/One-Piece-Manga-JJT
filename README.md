@@ -1,9 +1,12 @@
 # One-Piece-Manga-JJT
  downlaod manga one piece from one piece jjt reader
 
-## How download chapter
-"py main.py" 
-
-- 1 per scaricare pagina
-- 2 per scaricare capitolo
-- 3 per scaricare range capitlo
+## TO DO LIST
+- migliorare visualizzazione pdf
+- trova modo per eliminare immagini che non servono
+- aggiungi bookmakers
+- aggiungi progressione ai download
+- inserisci log
+- rich per migliorare grafica
+- inserisci commenti 
+- passa a inglese
