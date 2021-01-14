@@ -25,4 +25,4 @@ def crea_pdf_capitoli(capitolo_inizio, capitolo_fine, dizionario):
             image = Image.open(f'c:\\Users\\K\\Desktop\\{capitolo}\\{pagina}.png')
             image2 = image.convert('RGB')
             lista.append(image2)
-    image2.save(f'C:\\Users\\K\\Desktop\\{capitolo}.pdf', save_all=True, append_images=lista)
+    image2.save(f'C:\\Users\\K\\Desktop\\{capitolo_inizio}-{capitolo_fine}.pdf', save_all=True, append_images=lista)
