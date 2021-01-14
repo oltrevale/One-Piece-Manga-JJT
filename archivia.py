@@ -17,7 +17,6 @@ def crea_pdf_capitolo(lunghezza_lista, capitolo):
 
 
 def crea_pdf_capitoli(capitolo_inizio, capitolo_fine, dizionario):
-    # FIXME cambia nome pdf che si verra a creare
     # FIXME utima pagina diventa prima nel pdf
     lista = []
     for capitolo in range(capitolo_inizio, capitolo_fine):
