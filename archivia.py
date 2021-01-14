@@ -20,7 +20,7 @@ def crea_pdf_capitoli(capitolo_inizio, capitolo_fine, dizionario):
     # FIXME utima pagina diventa prima nel pdf
     # FIXME nome pdf sbagliato perchè per far funzionare il ciclo abbiamo aggiunto un 1 a capitolo fine 
     lista = []
-    for capitolo in range(capitolo_inizio, capitolo_fine+1):
+    for capitolo in range(capitolo_inizio, capitolo_fine + 1):
         for pagina in range(1, dizionario[capitolo]):
             image = Image.open(f'c:\\Users\\K\\Desktop\\{capitolo}\\{pagina}.png')
             image2 = image.convert('RGB')
