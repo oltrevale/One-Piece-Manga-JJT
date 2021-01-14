@@ -28,8 +28,7 @@ def menu():
         dizionario = {}
         capitolo_inizio = int(input("Estremo range da cui iniziare a scaricare?"))
         capitolo_fine = int(input("Estremo range in cui terminare?"))
-        capitolo_fine = capitolo_fine + 1  # per il range
-        for capitolo in range(capitolo_inizio, capitolo_fine):
+        for capitolo in range(capitolo_inizio, capitolo_fine+1):
             lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
             dizionario[capitolo] = lunghezza_lista
             print(f"Capitolo numero {capitolo} scaricato")
