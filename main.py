@@ -1,6 +1,3 @@
-# TODO rich per migliorare grafica
-# TODO inserisci commenti
-# FIXME passa a inglese
 import scarica_pagina
 import archivia
 
@@ -17,7 +14,7 @@ def menu():
         print(f"La pagina numero {pagina} del capitolo numero {capitolo} è stata scaricata")
         menu()
     if immissione == 2:
-        # TODO: permeettere di aggiungere capitolo a volume .pdf
+        # TODO: permettere di aggiungere capitolo a volume .pdf
         capitolo = input("Numero del capitolo?")
         lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
         archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
@@ -28,7 +25,7 @@ def menu():
         dizionario = {}
         capitolo_inizio = int(input("Estremo range da cui iniziare a scaricare?"))
         capitolo_fine = int(input("Estremo range in cui terminare?"))
-        for capitolo in range(capitolo_inizio, capitolo_fine+1):
+        for capitolo in range(capitolo_inizio, capitolo_fine + 1):
             lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
             dizionario[capitolo] = lunghezza_lista
             print(f"Capitolo numero {capitolo} scaricato")
