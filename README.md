@@ -3,3 +3,7 @@
 
 ## How download chapter
 "py main.py" 
+
+- 1 per scaricare pagina
+- 2 per scaricare capitolo
+- 3 per scaricare range capitlo
