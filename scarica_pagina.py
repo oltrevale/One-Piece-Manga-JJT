@@ -1,5 +1,4 @@
 import os
-import time
 
 import requests
 from bs4 import BeautifulSoup
@@ -38,7 +37,6 @@ def scarica_capitolo(capitolo):
             pass
         else:
             lista_link.append(link)
-    time.sleep(1)
     return len(lista_link)
 
 
