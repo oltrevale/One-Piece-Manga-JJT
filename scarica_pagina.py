@@ -43,9 +43,15 @@ def scarica_capitolo(capitolo):
 
 
 def rimuovi_immagini_inutili(capitolo, numero_pagine):
+    indice = 1
     for pagina in range(1, numero_pagine + 1):
         image = Image.open(f'{path}//{capitolo}//{pagina}.png')
         image = image.convert('RGB')
+        if image.size: # TODO
+            os.rename(f'{path}//{capitolo}//{pagina}.png', f'{path}//{capitolo}//{indice}.png')
+        else:
+            os.rename(f'{path}//{capitolo}//{pagina}.png', f'{path}//{capitolo}// prova.png')
+
         # devi eliminare file inutile e devi rinominare file successivi affinche si continui con numerazione giusta
         # in piu devi terner conto di quanti immagini utili ci sono
 
