@@ -1,5 +1,6 @@
 from PIL import Image
 import logging
+import os
 
 logging.basicConfig(filename='ciao.log', level=logging.INFO)
 
@@ -26,3 +27,14 @@ def crea_pdf_capitoli(capitolo_inizio, capitolo_fine, dizionario):
         logging.info('\n')
     image = lista[0]
     image.save(f'C:\\Users\\K\\Desktop\\{capitolo_inizio}-{capitolo_fine}.pdf', save_all=True, append_images=lista[1:])
+def aggiungi_capitolo_pdf(capitolo,lunghezza_lista,pdf,capitolo_inizo):
+    #TODO estrai capitolo inizio da nome pdf tramite regix
+    image0 = Image.open(f'C:\\Users\\K\\Desktop\\{capitolo}\\1.png')
+    image0 = image0.convert('RGB')
+    lista = []
+    for pagina in range(2, lunghezza_lista):
+        image = Image.open(f'C:\\Users\\K\\Desktop\\{capitolo}\\{pagina}.png')
+        image = image.convert('RGB')
+        lista.append(image)
+    image0.save(f'C:\\Users\\K\\Desktop\\{pdf}.pdf', save_all=True, append_images=lista)
+    os.rename(f'C:\\Users\\K\\Desktop\\{pdf}.pdf',f'C:\\Users\\K\\Desktop\\{capitolo_inizo}-{capitolo}.pdf')

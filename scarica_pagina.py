@@ -5,10 +5,10 @@ from bs4 import BeautifulSoup
 import logging
 
 logging.basicConfig(level=logging.INFO, filename='came.log')
-lista = []
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/39.0.2171.95 Safari/537.36'}
+path = "C:\\Users\\K\\Desktop"
 
 
 def recupera_link(capitolo, pagina):
@@ -25,35 +25,29 @@ def recupera_link(capitolo, pagina):
 
 
 def scarica_capitolo(capitolo):
-    indice = 1
     try:
-        os.mkdir(f"C:\\Users\\K\\Desktop\\{capitolo}")
+        os.mkdir(f"{path}\\{capitolo}")
     except OSError:
         pass
-    dizionario = {}
+    lista = []
     for pagina in range(1, 23):
         link = recupera_link(capitolo, pagina)
-        if link in dizionario.keys():
+        if link in lista:
             pass
         else:
-            dizionario[link] = pagina
-    print(dizionario.values)
-    for link in dizionario.keys():
-        with open(f"C:\\Users\\K\\Desktop\\{capitolo}\\prova.png", "wb") as f:
+            lista.append(link)
+    for link in lista:
+        with open(f"{path}\\{capitolo}\\prova.png", "wb") as f:
             f.write(requests.get(link, headers=headers).content)
-        image = Image.open(f'C:\\Users\\K\\Desktop\\{capitolo}\\prova.png')
-        image = image.convert('RGB')
-        if image.size == (3385, 2560) or image.size == (1390, 2100):
-            image.close()
-            os.rename(f"C:\\Users\\K\\Desktop\\{capitolo}\\prova.png",
-                      f"C:\\Users\\K\\Desktop\\{capitolo}\\{indice}.png")
-            indice += 1
-            logging.info(indice)
-            logging.info('\n')
+    return len(lista)
 
-        else:
-            pass
-    return indice
+
+def rimuovi_immagini_inutili(capitolo, numero_pagine):
+    for pagina in range(1, numero_pagine + 1):
+        image = Image.open(f'{path}//{capitolo}//{pagina}.png')
+        image = image.convert('RGB')
+        # devi eliminare file inutile e devi rinominare file successivi affinche si continui con numerazione giusta
+        # in piu devi terner conto di quanti immagini utili ci sono
 
 
 if __name__ == "__main__":

@@ -14,11 +14,20 @@ def menu():
         print(f"La pagina numero {pagina} del capitolo numero {capitolo} è stata scaricata")
         menu()
     if immissione == 2:
-        # TODO: permettere di aggiungere capitolo a volume .pdf
-        capitolo = input("Numero del capitolo?")
-        lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
-        archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
-        print(f"Capitolo numero {capitolo} scaricato")
+        print('1 per aggiungere capitolo a pdf')
+        print('quasiasi altro per non aggiungerlo')
+        immissione = int(input())
+        if immissione == 1:
+            capitolo = input("Numero del capitolo da scaricare")
+            pdf = input('Numero pdf da aggiungere')
+            capitolo_inizio = input('Primo capitolo de pdf')
+            lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
+            archivia.aggiungi_capitolo_pdf(capitolo, lunghezza_lista, pdf, capitolo_inizio)
+            print(f"Capitolo numero {capitolo} scaricato")
+        else:
+            capitolo = input('Numero del capitolo da scaricare')
+            lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
+            archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
         menu()
     if immissione == 3:
         # TODO aggiungi opzione per non aggiungere capitoli ad unico pdf
