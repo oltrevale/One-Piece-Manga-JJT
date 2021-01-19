@@ -1,7 +1,10 @@
 # One-Piece-Manga-JJT
 
 Downlaod manga one piece from one piece jjt reader
+## COSE DA FARE SUBITO 
+- trovare modo di ottere piu informazioni possibili su size delle varie immagini utili 
 ## BRAINSTORMING
+- trovare modo di eliminare immagini inutili
 - migliorare presentazione programma 
 - trovare modo per migliorare visualizzazione pdf
 - trovare modo di aggiungere bookmakers
