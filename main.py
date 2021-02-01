@@ -10,7 +10,7 @@ def menu():
     if immissione == 1:
         pagina = input("pagina del Capitolo?")
         capitolo = input("Numero del Capitolo?")
-        scarica_pagina.scarica_pagina(pagina, capitolo)
+        scarica_pagina.recupera_link(pagina, capitolo)
         print(f"La pagina numero {pagina} del capitolo numero {capitolo} è stata scaricata")
         menu()
     if immissione == 2:
@@ -27,7 +27,7 @@ def menu():
         else:
             capitolo = input('Numero del capitolo da scaricare')
             lunghezza_lista = scarica_pagina.scarica_capitolo(capitolo)
-            archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
+            # archivia.crea_pdf_capitolo(lunghezza_lista, capitolo)
         menu()
     if immissione == 3:
         # TODO aggiungi opzione per non aggiungere capitoli ad unico pdf

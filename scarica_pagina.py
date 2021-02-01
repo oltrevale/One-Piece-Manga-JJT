@@ -21,24 +21,31 @@ def recupera_link(capitolo, pagina):
     immagine = soup.find(class_="open open_image")
     link = immagine["src"]
     link = link.replace(" ", "")
+    print(link)
     return link
 
 
 def scarica_capitolo(capitolo):
+    indice = 1
     try:
         os.mkdir(f"{path}\\{capitolo}")
     except OSError:
         pass
     lista = []
-    for pagina in range(1, 23):
-        link = recupera_link(capitolo, pagina)
-        if link in lista:
-            pass
-        else:
-            lista.append(link)
+    try:
+        for pagina in range(1, 23):
+            link = recupera_link(capitolo, pagina)
+            if link in lista:
+                pass
+            else:
+                lista.append(link)
+    except:
+        pass
     for link in lista:
-        with open(f"{path}\\{capitolo}\\prova.png", "wb") as f:
-            f.write(requests.get(link, headers=headers).content)
+        with open(f"{path}\\{capitolo}\\{indice}.png", "wb") as f:
+            richiesta = requests.get(link, headers=headers)
+            f.write(richiesta.content)
+            indice += 1
     return len(lista)
 
 
@@ -53,8 +60,8 @@ def rimuovi_immagini_inutili(capitolo, numero_pagine):
         else:
             os.rename(f'{path}//{capitolo}//{pagina}.png', f'{path}//{capitolo}// prova.png')
 
-        # devi eliminare file inutile e devi rinominare file successivi affinche si continui con numerazione giusta
-        # in piu devi terner conto di quanti immagini utili ci sono
+        # devi eliminare file inutile e devi rinominare file successivi affinché si continui con numerazione giusta
+        # in piu devi tener conto di quanti immagini utili ci sono
 
 
 if __name__ == "__main__":
